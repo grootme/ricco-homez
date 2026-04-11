@@ -1,0 +1,107 @@
+{
+  "extraction_date": "2026-04-05",
+  "source_url": "https://homez-appdir.vercel.app/",
+  "header_menu": {
+    "home": {
+      "name": "Home",
+      "items": [
+        {"name": "Home v1", "ref": "e201"},
+        {"name": "Home v2", "ref": "e202"},
+        {"name": "Home v3", "ref": "e203"},
+        {"name": "Home v4", "ref": "e204"},
+        {"name": "Home v5", "ref": "e205"},
+        {"name": "Home v6", "ref": "e206"},
+        {"name": "Home v7", "ref": "e207"},
+        {"name": "Home v8", "ref": "e208"},
+        {"name": "Home v9", "ref": "e209"},
+        {"name": "Home v10", "ref": "e210"}
+      ]
+    },
+    "listing": {
+      "name": "Listing",
+      "items": [
+        {"name": "Grid Default", "ref": "e211"},
+        {"name": "Grid Full Width 3 Cols", "ref": "e212"},
+        {"name": "Grid Full Width 4 Cols", "ref": "e213"},
+        {"name": "Grid Full Width 2 Cols", "ref": "e214"},
+        {"name": "Grid Full Width 1 Cols v1", "ref": "e215"},
+        {"name": "Grid Full Width 1 Cols v2", "ref": "e216"},
+        {"name": "Banner Search v1", "ref": "e217"},
+        {"name": "Banner Search v2", "ref": "e218"},
+        {"name": "Header Map Style", "ref": "e219"},
+        {"name": "Map V1", "ref": "e220"},
+        {"name": "Map V2", "ref": "e221"},
+        {"name": "Map V3", "ref": "e222"},
+        {"name": "Map V4", "ref": "e223"},
+        {"name": "List v1", "ref": "e224"},
+        {"name": "List All Style", "ref": "e225"}
+      ]
+    },
+    "property": {
+      "name": "Property",
+      "submenus": {
+        "agents": {
+          "name": "Agents",
+          "items": [
+            {"name": "Agents", "ref": "e270"},
+            {"name": "Agent Single", "ref": "e271"},
+            {"name": "Agency", "ref": "e272"},
+            {"name": "Agency Single", "ref": "e273"}
+          ]
+        },
+        "single_style": {
+          "name": "Single Style",
+          "items": [
+            {"name": "Single V1", "ref": "e270"},
+            {"name": "Single V2", "ref": "e271"},
+            {"name": "Single V3", "ref": "e272"},
+            {"name": "Single V4", "ref": "e273"},
+            {"name": "Single V5", "ref": "e274"},
+            {"name": "Single V6", "ref": "e275"},
+            {"name": "Single V7", "ref": "e276"},
+            {"name": "Single V8", "ref": "e277"},
+            {"name": "Single V9", "ref": "e278"},
+            {"name": "Single V10", "ref": "e279"}
+          ]
+        },
+        "dashboard": {
+          "name": "Dashboard",
+          "items": [
+            {"name": "Dashboard Home", "ref": "e270"},
+            {"name": "Message", "ref": "e271"},
+            {"name": "New Property", "ref": "e272"},
+            {"name": "My Properties", "ref": "e273"},
+            {"name": "My Favorites", "ref": "e274"},
+            {"name": "Saved Search", "ref": "e275"},
+            {"name": "Reviews", "ref": "e276"},
+            {"name": "My Package", "ref": "e277"},
+            {"name": "My Profile", "ref": "e278"}
+          ]
+        }
+      }
+    },
+    "blog": {
+      "name": "Blog",
+      "items": [
+        {"name": "Blog List V1", "ref": "e216"},
+        {"name": "Blog List V2", "ref": "e217"},
+        {"name": "Blog List V3", "ref": "e218"},
+        {"name": "Blog Single", "ref": "e219"}
+      ]
+    },
+    "pages": {
+      "name": "Pages",
+      "items": [
+        {"name": "About", "ref": "e216"},
+        {"name": "Contact", "ref": "e217"},
+        {"name": "Compare", "ref": "e218"},
+        {"name": "Pricing", "ref": "e219"},
+        {"name": "Faq", "ref": "e220"},
+        {"name": "Login", "ref": "e221"},
+        {"name": "Register", "ref": "e222"},
+        {"name": "404", "ref": "e223"},
+        {"name": "Invoice", "ref": "e224"}
+      ]
+    }
+  }
+}

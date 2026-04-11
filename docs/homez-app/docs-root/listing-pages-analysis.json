@@ -1,0 +1,324 @@
+{
+  "analysisDate": "2025-04-05",
+  "task": "Analyze Listing Pages from Homez Real Estate Template",
+  "baseUrl": "https://homez-appdir.vercel.app/",
+  "pagesAnalyzed": 15,
+  
+  "gsapAnalysis": {
+    "gsapUsed": false,
+    "note": "GSAP is NOT used in this template. Alternative animation libraries are used instead.",
+    "alternativeLibraries": [
+      {
+        "name": "AOS",
+        "version": "^2.3.4",
+        "purpose": "Animate On Scroll - triggers animations when elements enter viewport",
+        "configuration": {
+          "duration": 1200,
+          "easing": "ease",
+          "once": true,
+          "offset": 120
+        }
+      },
+      {
+        "name": "WOW.js",
+        "version": "^1.2.2",
+        "purpose": "Reveal animations on scroll"
+      },
+      {
+        "name": "CSS Transitions",
+        "purpose": "Hover effects and simple animations"
+      }
+    ]
+  },
+  
+  "animationTypes": [
+    {
+      "type": "fade-up",
+      "description": "Fade in from bottom",
+      "cssTransform": "translateY(100px) → translateY(0)",
+      "duration": "1200ms"
+    },
+    {
+      "type": "fade-down",
+      "description": "Fade in from top",
+      "cssTransform": "translateY(-100px) → translateY(0)",
+      "duration": "1200ms"
+    },
+    {
+      "type": "fade-left",
+      "description": "Fade in from right",
+      "cssTransform": "translateX(100px) → translateX(0)",
+      "duration": "1200ms"
+    },
+    {
+      "type": "fade-right",
+      "description": "Fade in from left",
+      "cssTransform": "translateX(-100px) → translateX(0)",
+      "duration": "1200ms"
+    },
+    {
+      "type": "zoom-in",
+      "description": "Scale up effect",
+      "cssTransform": "scale(0.6) → scale(1)",
+      "duration": "1200ms"
+    }
+  ],
+  
+  "hoverAnimations": {
+    "cardHover": {
+      "transform": "translateY(-5px)",
+      "boxShadow": "0 15px 40px rgba(0, 0, 0, 0.1)",
+      "transition": "all 0.3s ease"
+    },
+    "buttonHover": {
+      "transform": "translateY(-2px)",
+      "boxShadow": "0 5px 20px rgba(0, 0, 0, 0.15)",
+      "transition": "all 0.3s ease"
+    },
+    "imageZoom": {
+      "transform": "scale(1.05)",
+      "transition": "transform 0.5s ease"
+    }
+  },
+  
+  "themeVariables": {
+    "colors": {
+      "primary": "#e33e3e",
+      "primaryRGB": "rgb(235, 103, 83)",
+      "primaryHover": "#c53535",
+      "secondary": "#041e42",
+      "dark": "#0f172a",
+      "dark2": "#181a20",
+      "white": "#ffffff",
+      "gray100": "#f8fafc",
+      "gray200": "#f7f7f7",
+      "gray300": "#efefef",
+      "gray400": "#eeeeee",
+      "gray500": "#64748b",
+      "gray600": "#94a3b8",
+      "success": "#22c55e",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "facebook": "#1877f2",
+      "google": "#4285f4",
+      "apple": "#000000"
+    },
+    "typography": {
+      "fontHeading": "Poppins, sans-serif",
+      "fontBody": "DM Sans, sans-serif",
+      "fontSizes": {
+        "h1": "3rem",
+        "h2": "2.25rem",
+        "h3": "1.875rem",
+        "h4": "1.5rem",
+        "body": "0.875rem"
+      }
+    },
+    "borderRadius": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "pill": "60px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px rgba(0, 0, 0, 0.05)",
+      "md": "0 4px 6px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 30px rgba(0, 0, 0, 0.1)",
+      "xl": "0 15px 40px rgba(0, 0, 0, 0.15)"
+    }
+  },
+  
+  "npmDependencies": {
+    "core": {
+      "next": "^14.0.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "styling": {
+      "bootstrap": "^5.3.0",
+      "@emotion/react": "^11.11.0",
+      "@emotion/styled": "^11.11.0",
+      "sass": "^1.69.0"
+    },
+    "animation": {
+      "aos": "^2.3.4",
+      "wow.js": "^1.2.2"
+    },
+    "ui": {
+      "swiper": "^11.0.0",
+      "react-select": "^5.7.0",
+      "react-pro-sidebar": "^1.1.0"
+    },
+    "icons": {
+      "@fortawesome/fontawesome-svg-core": "^6.4.0",
+      "@fortawesome/free-solid-svg-icons": "^6.4.0",
+      "@fortawesome/free-regular-svg-icons": "^6.4.0",
+      "@fortawesome/free-brands-svg-icons": "^6.4.0",
+      "@fortawesome/react-fontawesome": "^0.2.0"
+    },
+    "forms": {
+      "react-hook-form": "^7.48.0",
+      "zod": "^3.22.0",
+      "@hookform/resolvers": "^3.3.0"
+    },
+    "state": {
+      "zustand": "^4.4.0"
+    },
+    "dataFetching": {
+      "axios": "^1.6.0",
+      "@tanstack/react-query": "^5.8.0"
+    },
+    "maps": {
+      "@react-google-maps/api": "^2.19.0",
+      "mapbox-gl": "^3.0.0",
+      "react-map-gl": "^7.1.0"
+    }
+  },
+  
+  "pages": [
+    {
+      "id": 1,
+      "route": "/grid-default",
+      "file": "grid-default.md",
+      "layoutType": "Homepage-style with Grid Sections",
+      "animationsUsed": ["AOS fade-up", "Card hover lift", "Swiper carousel"],
+      "features": ["Hero search", "Property type quick links", "City cards carousel"]
+    },
+    {
+      "id": 2,
+      "route": "/grid-full-1-col-v1",
+      "file": "grid-full-1-col-v1.md",
+      "layoutType": "Single column horizontal cards",
+      "animationsUsed": ["AOS fade-up", "Sidebar filter slide"],
+      "features": ["Sticky sidebar filter", "Horizontal property cards"]
+    },
+    {
+      "id": 3,
+      "route": "/grid-full-1-col-v2",
+      "file": "grid-full-1-col-v2.md",
+      "layoutType": "Single column vertical cards",
+      "animationsUsed": ["AOS fade-up", "Image gallery transitions"],
+      "features": ["Vertical card layout", "Image gallery per card"]
+    },
+    {
+      "id": 4,
+      "route": "/grid-full-2-col",
+      "file": "grid-full-2-col.md",
+      "layoutType": "Full-width 2-column grid",
+      "animationsUsed": ["AOS fade-up", "Hero slider"],
+      "features": ["Hero Swiper slider", "Large property cards"]
+    },
+    {
+      "id": 5,
+      "route": "/grid-full-3-col",
+      "file": "grid-full-3-col.md",
+      "layoutType": "Full-width 3-column grid",
+      "animationsUsed": ["AOS fade-up", "Filter transitions"],
+      "features": ["Collapsible sidebar", "React Select filters"]
+    },
+    {
+      "id": 6,
+      "route": "/grid-full-4-col",
+      "file": "grid-full-4-col.md",
+      "layoutType": "Full-width 4-column grid",
+      "animationsUsed": ["AOS fade-up", "Virtual scroll"],
+      "features": ["Compact cards", "Virtual scrolling optimization"]
+    },
+    {
+      "id": 7,
+      "route": "/list-v1",
+      "file": "list-v1.md",
+      "layoutType": "List view with sidebar",
+      "animationsUsed": ["AOS fade-up", "List item stagger"],
+      "features": ["Zustand state management", "Extended property info"]
+    },
+    {
+      "id": 8,
+      "route": "/list-all-style",
+      "file": "list-all-style.md",
+      "layoutType": "Multiple list styles",
+      "animationsUsed": ["AOS fade-up", "Style switcher transitions"],
+      "features": ["4 list style variants", "Card style switcher"]
+    },
+    {
+      "id": 9,
+      "route": "/map-v1",
+      "file": "map-v1.md",
+      "layoutType": "Split view (List left, Map right)",
+      "animationsUsed": ["Map pan/zoom", "Marker hover", "Card highlight sync"],
+      "features": ["Google Maps with MarkerClusterer", "Map-list sync"]
+    },
+    {
+      "id": 10,
+      "route": "/map-v2",
+      "file": "map-v2.md",
+      "layoutType": "Split view (Map right, List left with sidebar)",
+      "animationsUsed": ["Map transitions", "Sidebar collapse"],
+      "features": ["List cards with description", "Sidebar filters"]
+    },
+    {
+      "id": 11,
+      "route": "/map-v3",
+      "file": "map-v3.md",
+      "layoutType": "Full-screen map with floating cards",
+      "animationsUsed": ["Drawer slide", "Map fullscreen transition"],
+      "features": ["Floating cards drawer", "Toggle filter panel"]
+    },
+    {
+      "id": 12,
+      "route": "/map-v4",
+      "file": "map-v4.md",
+      "layoutType": "Inverted split (Map left, List right)",
+      "animationsUsed": ["Map transitions", "List scroll"],
+      "features": ["Inverted layout", "Sidebar filters"]
+    },
+    {
+      "id": 13,
+      "route": "/header-map-style",
+      "file": "header-map-style.md",
+      "layoutType": "Map in header position + Grid below",
+      "animationsUsed": ["Map pan", "Grid fade-in"],
+      "features": ["Full-height hero map", "Map-style search"]
+    },
+    {
+      "id": 14,
+      "route": "/banner-search-v1",
+      "file": "banner-search-v1.md",
+      "layoutType": "Hero banner with mortgage calculator sidebar",
+      "animationsUsed": ["Hero fade", "Calculator input transitions"],
+      "features": ["Mortgage calculator", "Recently viewed sidebar"]
+    },
+    {
+      "id": 15,
+      "route": "/banner-search-v2",
+      "file": "banner-search-v2.md",
+      "layoutType": "Advanced hero search",
+      "animationsUsed": ["Hero fade", "Tab transitions", "Filter expand"],
+      "features": ["Sale/Rent tabs", "Quick filters", "Expandable fields"]
+    }
+  ],
+  
+  "cssStylingApproach": {
+    "framework": "Bootstrap 5",
+    "cssInJs": "Emotion CSS-in-JS",
+    "preprocessor": "SCSS/Sass",
+    "patterns": [
+      "CSS custom properties for theming",
+      "Emotion for component-scoped styles",
+      "Bootstrap utility classes for layout",
+      "SCSS for global styles and mixins"
+    ]
+  },
+  
+  "keyFindings": [
+    "GSAP is NOT used - template relies on AOS, WOW.js, and CSS transitions",
+    "Theme uses CSS custom properties for consistent styling",
+    "Emotion CSS-in-JS for component-level styling",
+    "Bootstrap 5 provides the grid system and base components",
+    "Swiper used for all carousels and sliders",
+    "React Select for filter dropdowns",
+    "Font Awesome + custom Flaticon icons for UI elements",
+    "Google Maps integration with marker clustering"
+  ]
+}

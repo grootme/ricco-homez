@@ -1,0 +1,80 @@
+{
+  "extraction_date": "2026-04-05",
+  "source_url": "https://homez-appdir.vercel.app/",
+  "pages": {
+    "home_pages": [
+      {"name": "Home v1", "href": "https://homez-appdir.vercel.app/", "slug": "home-v1"},
+      {"name": "Home v2", "href": "https://homez-appdir.vercel.app/home-v2", "slug": "home-v2"},
+      {"name": "Home v3", "href": "https://homez-appdir.vercel.app/home-v3", "slug": "home-v3"},
+      {"name": "Home v4", "href": "https://homez-appdir.vercel.app/home-v4", "slug": "home-v4"},
+      {"name": "Home v5", "href": "https://homez-appdir.vercel.app/home-v5", "slug": "home-v5"},
+      {"name": "Home v6", "href": "https://homez-appdir.vercel.app/home-v6", "slug": "home-v6"},
+      {"name": "Home v7", "href": "https://homez-appdir.vercel.app/home-v7", "slug": "home-v7"},
+      {"name": "Home v8", "href": "https://homez-appdir.vercel.app/home-v8", "slug": "home-v8"},
+      {"name": "Home v9", "href": "https://homez-appdir.vercel.app/home-v9", "slug": "home-v9"},
+      {"name": "Home v10", "href": "https://homez-appdir.vercel.app/home-v10", "slug": "home-v10"}
+    ],
+    "listing_pages": [
+      {"name": "Grid Default", "href": "https://homez-appdir.vercel.app/grid-default", "slug": "grid-default"},
+      {"name": "Grid Full Width 3 Cols", "href": "https://homez-appdir.vercel.app/grid-full-3-col", "slug": "grid-full-3-col"},
+      {"name": "Grid Full Width 4 Cols", "href": "https://homez-appdir.vercel.app/grid-full-4-col", "slug": "grid-full-4-col"},
+      {"name": "Grid Full Width 2 Cols", "href": "https://homez-appdir.vercel.app/grid-full-2-col", "slug": "grid-full-2-col"},
+      {"name": "Grid Full Width 1 Cols v1", "href": "https://homez-appdir.vercel.app/grid-full-1-col-v1", "slug": "grid-full-1-col-v1"},
+      {"name": "Grid Full Width 1 Cols v2", "href": "https://homez-appdir.vercel.app/grid-full-1-col-v2", "slug": "grid-full-1-col-v2"},
+      {"name": "Banner Search v1", "href": "https://homez-appdir.vercel.app/banner-search-v1", "slug": "banner-search-v1"},
+      {"name": "Banner Search v2", "href": "https://homez-appdir.vercel.app/banner-search-v2", "slug": "banner-search-v2"},
+      {"name": "Header Map Style", "href": "https://homez-appdir.vercel.app/header-map-style", "slug": "header-map-style"},
+      {"name": "Map V1", "href": "https://homez-appdir.vercel.app/map-v1", "slug": "map-v1"},
+      {"name": "Map V2", "href": "https://homez-appdir.vercel.app/map-v2", "slug": "map-v2"},
+      {"name": "Map V3", "href": "https://homez-appdir.vercel.app/map-v3", "slug": "map-v3"},
+      {"name": "Map V4", "href": "https://homez-appdir.vercel.app/map-v4", "slug": "map-v4"},
+      {"name": "List v1", "href": "https://homez-appdir.vercel.app/list-v1", "slug": "list-v1"},
+      {"name": "List All Style", "href": "https://homez-appdir.vercel.app/list-all-style", "slug": "list-all-style"}
+    ],
+    "property_single_pages": [
+      {"name": "Single V1", "href": "https://homez-appdir.vercel.app/single-v1/1", "slug": "single-v1"},
+      {"name": "Single V2", "href": "https://homez-appdir.vercel.app/single-v2/1", "slug": "single-v2"},
+      {"name": "Single V3", "href": "https://homez-appdir.vercel.app/single-v3/1", "slug": "single-v3"},
+      {"name": "Single V4", "href": "https://homez-appdir.vercel.app/single-v4/1", "slug": "single-v4"},
+      {"name": "Single V5", "href": "https://homez-appdir.vercel.app/single-v5/1", "slug": "single-v5"},
+      {"name": "Single V6", "href": "https://homez-appdir.vercel.app/single-v6/1", "slug": "single-v6"},
+      {"name": "Single V7", "href": "https://homez-appdir.vercel.app/single-v7/1", "slug": "single-v7"},
+      {"name": "Single V8", "href": "https://homez-appdir.vercel.app/single-v8/1", "slug": "single-v8"},
+      {"name": "Single V9", "href": "https://homez-appdir.vercel.app/single-v9/1", "slug": "single-v9"},
+      {"name": "Single V10", "href": "https://homez-appdir.vercel.app/single-v10/1", "slug": "single-v10"}
+    ],
+    "agent_pages": [
+      {"name": "Agents", "href": "https://homez-appdir.vercel.app/agents", "slug": "agents"},
+      {"name": "Agent Single", "href": "https://homez-appdir.vercel.app/agent-single/1", "slug": "agent-single"},
+      {"name": "Agency", "href": "https://homez-appdir.vercel.app/agency", "slug": "agency"},
+      {"name": "Agency Single", "href": "https://homez-appdir.vercel.app/agency-single/1", "slug": "agency-single"}
+    ],
+    "dashboard_pages": [
+      {"name": "Dashboard Home", "href": "https://homez-appdir.vercel.app/dashboard-home", "slug": "dashboard-home"},
+      {"name": "Message", "href": "https://homez-appdir.vercel.app/dashboard-message", "slug": "dashboard-message"},
+      {"name": "New Property", "href": "https://homez-appdir.vercel.app/dashboard-add-property", "slug": "dashboard-add-property"},
+      {"name": "My Properties", "href": "https://homez-appdir.vercel.app/dashboard-my-properties", "slug": "dashboard-my-properties"},
+      {"name": "My Favorites", "href": "https://homez-appdir.vercel.app/dashboard-my-favourites", "slug": "dashboard-my-favourites"},
+      {"name": "Saved Search", "href": "https://homez-appdir.vercel.app/dashboard-saved-search", "slug": "dashboard-saved-search"},
+      {"name": "Reviews", "href": "https://homez-appdir.vercel.app/dashboard-reviews", "slug": "dashboard-reviews"},
+      {"name": "My Package", "href": "https://homez-appdir.vercel.app/dashboard-my-package", "slug": "dashboard-my-package"},
+      {"name": "My Profile", "href": "https://homez-appdir.vercel.app/dashboard-my-profile", "slug": "dashboard-my-profile"}
+    ],
+    "blog_pages": [
+      {"name": "Blog List V1", "href": "https://homez-appdir.vercel.app/blog-list-v1", "slug": "blog-list-v1"},
+      {"name": "Blog List V2", "href": "https://homez-appdir.vercel.app/blog-list-v2", "slug": "blog-list-v2"},
+      {"name": "Blog List V3", "href": "https://homez-appdir.vercel.app/blog-list-v3", "slug": "blog-list-v3"},
+      {"name": "Blog Single", "href": "https://homez-appdir.vercel.app/blogs/2", "slug": "blog-single"}
+    ],
+    "other_pages": [
+      {"name": "About", "href": "https://homez-appdir.vercel.app/about", "slug": "about"},
+      {"name": "Contact", "href": "https://homez-appdir.vercel.app/contact", "slug": "contact"},
+      {"name": "Pricing", "href": "https://homez-appdir.vercel.app/pricing", "slug": "pricing"},
+      {"name": "Faq", "href": "https://homez-appdir.vercel.app/faq", "slug": "faq"},
+      {"name": "Login", "href": "https://homez-appdir.vercel.app/login", "slug": "login"},
+      {"name": "Register", "href": "https://homez-appdir.vercel.app/register", "slug": "register"},
+      {"name": "404", "href": "https://homez-appdir.vercel.app/not-found", "slug": "not-found"},
+      {"name": "Invoice", "href": "https://homez-appdir.vercel.app/invoice", "slug": "invoice"}
+    ]
+  }
+}

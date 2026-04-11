@@ -1,0 +1,11 @@
+export { default as HeroSection } from './HeroSection';
+export { default as PropertyTypesSection } from './PropertyTypesSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as FeaturedProperties } from './FeaturedProperties';
+export { default as CitiesSection } from './CitiesSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as StatsSection } from './StatsSection';
+export { default as BlogSection } from './BlogSection';
+export { default as CTASection } from './CTASection';
+export { default as PartnersSection } from './PartnersSection';
+export { default as AgentsSection } from './AgentsSection';

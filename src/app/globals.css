@@ -1,0 +1,402 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Homez Custom Colors */
+  --color-homez-primary: var(--homez-primary);
+  --color-homez-dark: var(--homez-dark);
+  --color-homez-secondary: var(--homez-secondary);
+  --color-homez-success: var(--homez-success);
+  --color-homez-warning: var(--homez-warning);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* Homez Theme Colors */
+  --homez-primary: #e33e3e;
+  --homez-dark: #041e42;
+  --homez-secondary: #1a3a5c;
+  --homez-success: #10b981;
+  --homez-warning: #f59e0b;
+  
+  /* Base Colors */
+  --background: #f7f7f7;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  
+  /* Primary - Homez Coral Red */
+  --primary: #e33e3e;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary - Homez Dark */
+  --secondary: #041e42;
+  --secondary-foreground: #ffffff;
+  
+  /* Muted */
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  
+  /* Accent */
+  --accent: #fef3f3;
+  --accent-foreground: #e33e3e;
+  
+  /* Destructive */
+  --destructive: #dc2626;
+  
+  /* Borders & Inputs */
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #e33e3e;
+  
+  /* Charts */
+  --chart-1: #e33e3e;
+  --chart-2: #041e42;
+  --chart-3: #10b981;
+  --chart-4: #f59e0b;
+  --chart-5: #3b82f6;
+  
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2937;
+  --sidebar-primary: #e33e3e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fef3f3;
+  --sidebar-accent-foreground: #e33e3e;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #e33e3e;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  
+  /* Primary stays coral red in dark mode */
+  --primary: #e33e3e;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary */
+  --secondary: #1e3a5f;
+  --secondary-foreground: #f8fafc;
+  
+  /* Muted */
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  
+  /* Accent */
+  --accent: #334155;
+  --accent-foreground: #f8fafc;
+  
+  /* Destructive */
+  --destructive: #ef4444;
+  
+  /* Borders & Inputs */
+  --border: #334155;
+  --input: #334155;
+  --ring: #e33e3e;
+  
+  /* Charts */
+  --chart-1: #e33e3e;
+  --chart-2: #60a5fa;
+  --chart-3: #34d399;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
+  
+  /* Sidebar */
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #e33e3e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #e33e3e;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Homez Custom Utilities */
+@layer utilities {
+  .text-homez-primary {
+    color: var(--homez-primary);
+  }
+  
+  .text-homez-dark {
+    color: var(--homez-dark);
+  }
+  
+  .bg-homez-primary {
+    background-color: var(--homez-primary);
+  }
+  
+  .bg-homez-dark {
+    background-color: var(--homez-dark);
+  }
+  
+  .border-homez-primary {
+    border-color: var(--homez-primary);
+  }
+  
+  .border-homez-dark {
+    border-color: var(--homez-dark);
+  }
+  
+  .hover\:bg-homez-primary:hover {
+    background-color: var(--homez-primary);
+  }
+  
+  .hover\:bg-homez-dark:hover {
+    background-color: var(--homez-dark);
+  }
+  
+  .hover\:text-homez-primary:hover {
+    color: var(--homez-primary);
+  }
+  
+  .hover\:text-homez-dark:hover {
+    color: var(--homez-dark);
+  }
+}
+
+/* Custom Scrollbar */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--muted-foreground);
+  }
+}
+
+/* Property Card Hover Effects */
+@layer utilities {
+  .property-card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .property-card-shadow:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+/* Section Spacing */
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+  
+  .section-margin {
+    @apply my-12 md:my-16 lg:my-20;
+  }
+}
+
+/* Container Max Width */
+@layer utilities {
+  .container-homez {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-wide {
+    @apply max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Animation Classes */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Price Tag Styling */
+@layer utilities {
+  .price-tag {
+    @apply inline-flex items-center font-bold text-homez-primary;
+  }
+  
+  .price-tag-large {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  .price-tag-medium {
+    @apply text-xl md:text-2xl;
+  }
+  
+  .price-tag-small {
+    @apply text-lg;
+  }
+}
+
+/* Badge Colors for Property Status */
+@layer utilities {
+  .badge-for-sale {
+    @apply bg-homez-primary text-white;
+  }
+  
+  .badge-for-rent {
+    @apply bg-homez-dark text-white;
+  }
+  
+  .badge-sold {
+    @apply bg-gray-500 text-white;
+  }
+  
+  .badge-pending {
+    @apply bg-homez-warning text-white;
+  }
+}

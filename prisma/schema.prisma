@@ -1,0 +1,507 @@
+// Prisma schema for Homez Real Estate Application
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  password      String?
+  avatar        String?
+  phone         String?
+  role          String    @default("user") // user, agent, agency, admin
+  emailVerified Boolean   @default(false)
+  phoneVerified Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  lastLoginAt   DateTime?
+  
+  // Relations
+  properties     Property[]      @relation("PropertyAgent")
+  favorites      Favorite[]
+  savedSearches  SavedSearch[]
+  reviews        Review[]
+  sentMessages   Message[]       @relation("MessageSender")
+  agentProfile   AgentProfile?
+  
+  @@map("users")
+}
+
+// Property model
+model Property {
+  id                  String   @id @default(uuid())
+  title               String
+  slug                String   @unique
+  description         String
+  price               Float
+  priceSuffix         String?
+  propertyType        String   // house, apartment, condo, townhouse, villa, penthouse, studio, land, commercial, office
+  status              String   @default("for-sale") // for-sale, for-rent, sold, rented, pending
+  featured            Boolean  @default(false)
+  images              String   // JSON array
+  videos              String?  // JSON array
+  virtualTour         String?
+  
+  // Location
+  address             String
+  city                String
+  state               String
+  zipCode             String
+  country             String
+  neighborhood        String?
+  latitude            Float?
+  longitude           Float?
+  
+  // Property Details
+  bedrooms            Int      @default(0)
+  bathrooms           Int      @default(0)
+  halfBaths           Int?
+  sqft                Int
+  lotSize             Float?
+  yearBuilt           Int?
+  garage              Int?
+  parkingSpots        Int?
+  floors              Int?
+  
+  // Features
+  features            String   @default("[]") // JSON array
+  amenities           String   @default("[]") // JSON array
+  
+  // Agent
+  agentId             String
+  agencyId            String?
+  
+  // Timestamps
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  // Stats
+  views               Int      @default(0)
+  favorites           Int      @default(0)
+  
+  // Additional
+  tourScheduleEnabled Boolean  @default(true)
+  inquiryEnabled      Boolean  @default(true)
+  
+  // Relations
+  agent               User     @relation("PropertyAgent", fields: [agentId], references: [id])
+  agency              Agency?  @relation(fields: [agencyId], references: [id])
+  favoriteUsers       Favorite[]
+  inquiries           Inquiry[]
+  tours               Tour[]
+  reviews             Review[]
+  
+  @@map("properties")
+}
+
+// Agent profile (extends User)
+model AgentProfile {
+  id                String   @id @default(uuid())
+  userId            String   @unique
+  title             String?
+  bio               String?
+  totalSales        Int      @default(0)
+  totalListings     Int      @default(0)
+  rating            Float    @default(0)
+  reviewCount       Int      @default(0)
+  officeAddress     String?
+  city              String?
+  state             String?
+  specialties       String   @default("[]") // JSON array
+  verified          Boolean  @default(false)
+  featured          Boolean  @default(false)
+  joinedAt          DateTime @default(now())
+  
+  // Social Links (JSON)
+  socialLinks       String   @default("{}")
+  
+  // Relations
+  user              User     @relation(fields: [userId], references: [id])
+  agency            Agency?  @relation(fields: [agencyId], references: [id])
+  agencyId          String?
+  
+  @@map("agent_profiles")
+}
+
+// Agency model
+model Agency {
+  id                String   @id @default(uuid())
+  name              String
+  slug              String   @unique
+  logo              String?
+  coverImage        String?
+  description       String?
+  
+  // Contact
+  email             String
+  phone             String?
+  website           String?
+  address           String?
+  city              String?
+  state             String?
+  zipCode           String?
+  
+  // Stats
+  totalAgents       Int      @default(0)
+  totalListings     Int      @default(0)
+  totalSales        Int      @default(0)
+  rating            Float    @default(0)
+  reviewCount       Int      @default(0)
+  
+  // Social Links (JSON)
+  socialLinks       String   @default("{}")
+  
+  // Verification
+  verified          Boolean  @default(false)
+  featured          Boolean  @default(false)
+  
+  // Timestamps
+  foundedYear       Int?
+  createdAt         DateTime @default(now())
+  
+  // Relations
+  properties        Property[]
+  agents            AgentProfile[]
+  reviews           Review[]
+  
+  @@map("agencies")
+}
+
+// City model
+model City {
+  id                String   @id @default(uuid())
+  name              String
+  slug              String   @unique
+  state             String
+  country           String
+  image             String?
+  totalProperties   Int      @default(0)
+  totalAgents       Int      @default(0)
+  featured          Boolean  @default(false)
+  description       String?
+  latitude          Float?
+  longitude         Float?
+  
+  @@map("cities")
+}
+
+// Testimonial model
+model Testimonial {
+  id                String   @id @default(uuid())
+  name              String
+  avatar            String?
+  role              String
+  company           String?
+  content           String
+  rating            Int
+  propertyType      String?
+  featured          Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  
+  @@map("testimonials")
+}
+
+// Blog Post model
+model BlogPost {
+  id                String   @id @default(uuid())
+  title             String
+  slug              String   @unique
+  excerpt           String
+  content           String
+  coverImage        String?
+  images            String?  // JSON array
+  
+  // Author
+  authorId          String
+  authorName        String
+  authorAvatar      String?
+  
+  // Categories & Tags
+  category          String
+  tags              String   @default("[]") // JSON array
+  
+  // Stats
+  views             Int      @default(0)
+  readTime          Int      @default(5)
+  
+  // Timestamps
+  publishedAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Status
+  status            String   @default("published") // published, draft
+  featured          Boolean  @default(false)
+  
+  @@map("blog_posts")
+}
+
+// Category model
+model Category {
+  id                String   @id @default(uuid())
+  name              String
+  slug              String   @unique
+  description       String?
+  icon              String?
+  image             String?
+  propertyCount     Int      @default(0)
+  parent            String?
+  
+  @@map("categories")
+}
+
+// Review model
+model Review {
+  id                String   @id @default(uuid())
+  propertyId        String?
+  agentId           String?
+  agencyId          String?
+  
+  // Reviewer
+  userId            String
+  userName          String
+  userAvatar        String?
+  
+  // Content
+  title             String
+  content           String
+  rating            Int
+  
+  // Response (JSON)
+  response          String?  // JSON object
+  
+  // Timestamps
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Status
+  status            String   @default("pending") // approved, pending, rejected
+  
+  // Relations
+  user              User     @relation(fields: [userId], references: [id])
+  property          Property? @relation(fields: [propertyId], references: [id])
+  agency            Agency?  @relation(fields: [agencyId], references: [id])
+  
+  @@map("reviews")
+}
+
+// Inquiry model
+model Inquiry {
+  id                String   @id @default(uuid())
+  propertyId        String
+  
+  // Contact Info
+  name              String
+  email             String
+  phone             String?
+  
+  // Message
+  message           String
+  
+  // Status
+  status            String   @default("new") // new, read, responded, closed
+  
+  // Timestamps
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Agent
+  agentId           String
+  
+  // Relations
+  property          Property @relation(fields: [propertyId], references: [id])
+  
+  @@map("inquiries")
+}
+
+// Tour model
+model Tour {
+  id                String   @id @default(uuid())
+  propertyId        String
+  
+  // Visitor Info
+  name              String
+  email             String
+  phone             String
+  
+  // Schedule
+  date              DateTime
+  time              String
+  timezone          String   @default("UTC")
+  
+  // Type
+  tourType          String   @default("in-person") // in-person, virtual, video
+  
+  // Message
+  message           String?
+  
+  // Status
+  status            String   @default("scheduled") // scheduled, confirmed, completed, cancelled, no-show
+  
+  // Agent
+  agentId           String
+  
+  // Timestamps
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Relations
+  property          Property @relation(fields: [propertyId], references: [id])
+  
+  @@map("tours")
+}
+
+// Favorite model
+model Favorite {
+  id                String   @id @default(uuid())
+  userId            String
+  propertyId        String
+  createdAt         DateTime @default(now())
+  
+  // Relations
+  user              User     @relation(fields: [userId], references: [id])
+  property          Property @relation(fields: [propertyId], references: [id])
+  
+  @@unique([userId, propertyId])
+  @@map("favorites")
+}
+
+// Saved Search model
+model SavedSearch {
+  id                String   @id @default(uuid())
+  userId            String
+  name              String
+  filters           String   // JSON object
+  notifications     Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  
+  // Relations
+  user              User     @relation(fields: [userId], references: [id])
+  
+  @@map("saved_searches")
+}
+
+// Message model
+model Message {
+  id                String   @id @default(uuid())
+  conversationId    String
+  senderId          String
+  senderName        String
+  senderAvatar      String?
+  content           String
+  attachments       String?  // JSON array
+  
+  // Read Status
+  read              Boolean  @default(false)
+  readAt            DateTime?
+  
+  // Timestamp
+  createdAt         DateTime @default(now())
+  
+  // Relations
+  conversation      Conversation @relation(fields: [conversationId], references: [id])
+  sender            User     @relation("MessageSender", fields: [senderId], references: [id])
+  
+  @@map("messages")
+}
+
+// Conversation model
+model Conversation {
+  id                String   @id @default(uuid())
+  participants      String   // JSON array
+  lastMessage       String?
+  lastMessageAt     DateTime?
+  unreadCount       Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Relations
+  messages          Message[]
+  
+  @@map("conversations")
+}
+
+// Package model
+model Package {
+  id                String   @id @default(uuid())
+  name              String
+  slug              String   @unique
+  description       String?
+  price             Float
+  billingPeriod     String   @default("monthly") // monthly, yearly, one-time
+  
+  // Features (JSON)
+  features          String   @default("[]")
+  limits            String   @default("{}")
+  
+  // Popular
+  popular           Boolean  @default(false)
+  
+  // Stripe
+  stripePriceId     String?
+  
+  @@map("packages")
+}
+
+// Invoice model
+model Invoice {
+  id                String   @id @default(uuid())
+  invoiceNumber     String   @unique
+  userId            String
+  
+  // Items (JSON)
+  items             String
+  
+  // Totals
+  subtotal          Float
+  tax               Float
+  total             Float
+  
+  // Status
+  status            String   @default("draft") // draft, sent, paid, cancelled
+  
+  // Dates
+  issueDate         DateTime @default(now())
+  dueDate           DateTime
+  paidAt            DateTime?
+  
+  // Payment
+  paymentMethod     String?
+  transactionId     String?
+  
+  @@map("invoices")
+}
+
+// Notification model
+model Notification {
+  id                String   @id @default(uuid())
+  userId            String
+  type              String   // inquiry, tour, message, listing, system
+  title             String
+  message           String
+  link              String?
+  read              Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  
+  @@map("notifications")
+}
+
+// Subscription model
+model Subscription {
+  id                String   @id @default(uuid())
+  userId            String
+  packageId         String
+  status            String   @default("active") // active, expired, cancelled
+  startDate         DateTime @default(now())
+  endDate           DateTime
+  features          String   @default("[]") // JSON array
+  
+  @@map("subscriptions")
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #f8f9fa; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header {
+  background: #1a1a2e; padding: 25pt 40pt;
+}
+.header h2 {
+  color: #ffffff; font-size: 24pt; font-weight: bold; margin: 0;
+}
+.content {
+  display: flex; padding: 20pt 40pt; gap: 15pt;
+}
+.img-card {
+  flex: 1; background: #ffffff; padding: 8pt; border-radius: 8pt;
+  box-shadow: 0 2pt 8pt rgba(0,0,0,0.1);
+}
+.img-placeholder {
+  background: #1a1a2e; height: 160pt; border-radius: 4pt;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8pt;
+}
+.img-placeholder p {
+  color: #6c757d; font-size: 10pt; margin: 0;
+}
+.img-label {
+  text-align: center;
+}
+.img-label p {
+  color: #495057; font-size: 9pt; margin: 0; font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>Screenshots</h2>
+</div>
+<div class="content">
+  <div class="img-card">
+    <div class="img-placeholder" id="img1">
+      <p>Home Demo Preview</p>
+    </div>
+    <div class="img-label">
+      <p>Home Page Demo</p>
+    </div>
+  </div>
+  <div class="img-card">
+    <div class="img-placeholder" id="img2">
+      <p>Homepage Overview</p>
+    </div>
+    <div class="img-label">
+      <p>Homepage Design</p>
+    </div>
+  </div>
+  <div class="img-card">
+    <div class="img-placeholder" id="img3">
+      <p>All Demos Preview</p>
+    </div>
+    <div class="img-label">
+      <p>Demos Overview</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
